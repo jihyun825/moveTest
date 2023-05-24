@@ -1,6 +1,7 @@
 package kr.or.ddit.vo;
 
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -17,5 +18,7 @@ public class Member {
 	@DateTimeFormat(pattern = "yyyyMMdd")
 	private Date dateOfBirth;
 	
+	private Address address;
+	private List<Card> cardList;
 
 }
