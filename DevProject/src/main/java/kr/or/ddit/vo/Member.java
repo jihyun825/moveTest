@@ -20,5 +20,20 @@ public class Member {
 	
 	private Address address;
 	private List<Card> cardList;
+	
+	private String email;
+	private String gender;
+	private String hobby;
+	private String[] hobbyArray;
+	private boolean foreigner;
+	private String developer;
+	private String nationality;
+	private String cars;
+	private String[] carArray;
+	private List<String> carList;
+	private List<String> hobbyList;
+	
+	private String introduction;
+	private String birthday;
 
 }
