@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-config.dtd">
+  
+  <!-- [마이바티스] 스프링에서 "_"를 사용한 컬럼명 사용시(BOOK 테이블의 BOOK_ID와 같은컬럼)
+  		카멜케이스로 읽어주는 역할(bookId와 같이)
+  		ex) 테이블컬러명이 member_id인경우 jsp화면단에서 이값을 사용시 memberId로 사용할 수 있다.
+   -->
+  <configuration>
+  	<settings>
+  		<setting name="mapUnderscoreToCamelCase" value="true"/>
+  	</settings>
+  	
+  	<typeAliases>
+	<typeAlias type="kr.or.ddit.vo.Board" alias="board"/>
+	<typeAlias type="kr.or.ddit.vo.MemberVO" alias="memberVo"/>
+	<typeAlias type="kr.or.ddit.vo.MemberAuth" alias="memberAuth"/>
+  	</typeAliases>
+  </configuration>
