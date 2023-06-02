@@ -16,5 +16,6 @@
 	<typeAlias type="kr.or.ddit.vo.Board" alias="board"/>
 	<typeAlias type="kr.or.ddit.vo.MemberVO" alias="memberVo"/>
 	<typeAlias type="kr.or.ddit.vo.MemberAuth" alias="memberAuth"/>
+	<typeAlias type="kr.or.ddit.vo.NoticeVO" alias="noticeVo"/>
   	</typeAliases>
   </configuration>
