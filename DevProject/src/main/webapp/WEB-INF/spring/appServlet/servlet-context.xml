@@ -35,7 +35,17 @@
          </beans:list>
       </beans:property>
    </beans:bean>
+   
    <!-- Tiles 설정 끝 -->
+   
+   <!-- 
+   서블릿 표준용 MultipartResolver스프링 빈으로 정의 
+    -standardServletMultipartResolver 사용시 설정
+     > serclet 3.0	
+   
+    -->
+   <beans:bean id="multipartResolver" class="org.springframework.web.multipart.support.StandardServletMultipartResolver">
+   </beans:bean>
    
    <context:component-scan base-package="kr.or.ddit" />
    

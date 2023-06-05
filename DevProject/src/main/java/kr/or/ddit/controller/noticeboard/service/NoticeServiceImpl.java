@@ -1,6 +1,7 @@
 package kr.or.ddit.controller.noticeboard.service;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.inject.Inject;
 
@@ -10,6 +11,7 @@ import kr.or.ddit.ServiceResult;
 import kr.or.ddit.controller.noticeboard.web.TelegramSendController;
 import kr.or.ddit.mapper.NoticeMapper;
 import kr.or.ddit.vo.NoticeVO;
+import kr.or.ddit.vo.PaginationInfoVO;
 
 @Service
 public class NoticeServiceImpl implements INoticeService {
@@ -54,7 +56,32 @@ public class NoticeServiceImpl implements INoticeService {
 			result = ServiceResult.FAILED;
 		}
 		
-		return null;
+		return result;
+	}
+	@Override
+	public ServiceResult deleteNotice(int boNo) {
+		ServiceResult result = null;
+		int status = noticeMapper.deleteNotice(boNo);
+		
+		if(status > 0) {
+			result = ServiceResult.OK;
+			
+		}else {
+			result = ServiceResult.FAILED;
+			
+		}
+		return result;
+	}
+	@Override
+	public int selectNoticeCount(PaginationInfoVO<NoticeVO> pagingVo) {
+		
+		return noticeMapper.selectNoticeCount(pagingVo);
+	}
+	@Override
+	public List<NoticeVO> selectNoticeList(PaginationInfoVO<NoticeVO> pagingVo) {
+		// TODO Auto-generated method stub
+		return noticeMapper.selectNoticeList(pagingVo);
+		// 안녕
 	}
 
 }

@@ -41,7 +41,7 @@
 					</div>
 					<div class="form-group">
 						<label for="boContent">내용을 입력해주세요</label>
-						<textarea id="boContent" name="boContent" class="form-control" rows="14">value="${notice.boContent }"</textarea>
+						<textarea id="boContent" name="boContent" class="form-control" rows="14">${notice.boContent }</textarea>
 					</div>
 					<div class="form-group">
 						<div class="custom-file">

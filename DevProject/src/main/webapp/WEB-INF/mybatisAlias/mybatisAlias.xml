@@ -17,5 +17,8 @@
 	<typeAlias type="kr.or.ddit.vo.MemberVO" alias="memberVo"/>
 	<typeAlias type="kr.or.ddit.vo.MemberAuth" alias="memberAuth"/>
 	<typeAlias type="kr.or.ddit.vo.NoticeVO" alias="noticeVo"/>
+	<typeAlias type="kr.or.ddit.vo.PaginationInfoVO" alias="pagingVo"/>
+	<typeAlias type="kr.or.ddit.vo.Item" alias="item"/>
+	<typeAlias type="kr.or.ddit.vo.Item2" alias="item2"/>
   	</typeAliases>
   </configuration>
