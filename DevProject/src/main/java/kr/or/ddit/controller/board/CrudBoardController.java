@@ -1,9 +1,12 @@
 package kr.or.ddit.controller.board;
 
+import java.io.IOException;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
+import org.springframework.aop.support.AopUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,6 +23,13 @@ public class CrudBoardController {
 	
 	@Inject
 	private IBoardService service;
+	// 빈이 등록되고 초기화단계에서 바로확인할때 사용
+	@PostConstruct
+	public void init() {
+		log.info("aopProxy상태 (interface기반) : {}" + AopUtils.isAopProxy(service));
+		log.info("aopProxy상태 (class기반) : {}" + AopUtils.isCglibProxy(service));
+		
+	}
 	
 	@RequestMapping(value="/register", method=RequestMethod.GET)
 	public String crudRegisterForm(Model model) {
@@ -33,7 +43,12 @@ public class CrudBoardController {
 	@RequestMapping(value="/register",method=RequestMethod.POST)
 	public String crudRegister(Board board, Model model) {
 		log.info("crudRegister()실행...!");
-		service.register(board);
+		try {
+			service.register(board);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		model.addAttribute("msg","등록이 완료되었습니다!");
 		return "crud/success";
 	}
