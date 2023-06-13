@@ -19,7 +19,7 @@
 			<tr>
 				<td>제목</td>
 				<td>
-					<input type="text" id="title" name="title" value="${board.title }"/>
+					<input type="text" id="title" name="title2" value="${board.title }"/>
 				</td>
 			</tr>
 			<tr>
@@ -52,7 +52,7 @@
 		var btnList = $('#btnList');
 		
 		btnRegister.on("click",function(){
-				var title = $('#title').val();
+// 				var title = $('#title').val();
 				var content=$('#content').val();
 				var writer = $('#writer').val();
 				

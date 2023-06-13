@@ -38,6 +38,29 @@
    
    <!-- Tiles 설정 끝 -->
    
+   
+   <!-- 
+   	인터셉터 설정
+   -LoginInterceptor클래스를 빈으로 정의한다.
+   	설정한 클래스는 해당위치에 존재해야합니다.(패키지구조에맞는)
+    -->
+   <beans:bean id="loginInterceptor" class="kr.or.ddit.controller.intercept.LoginInterceptor"></beans:bean>
+   <interceptors>
+   	<interceptor>
+   		<mapping path="/login1"/>
+   		<beans:ref bean="loginInterceptor"/>
+   	</interceptor>
+   </interceptors>
+   
+    <beans:bean id="accessLoggingInterceptor" class="kr.or.ddit.controller.intercept.AccessLoggingInterceptor"></beans:bean>
+   <interceptors>
+   	<interceptor>
+   		<mapping path="/*"/>
+   		<exclude-mapping path="/resources/**"/>
+   		<beans:ref bean="accessLoggingInterceptor"/>
+   	</interceptor>
+   </interceptors>
+   
    <!-- 
    서블릿 표준용 MultipartResolver스프링 빈으로 정의 
     -standardServletMultipartResolver 사용시 설정
