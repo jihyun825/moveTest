@@ -7,6 +7,7 @@
   		<id property="userNo" column="user_no"/>
   		<result property="userNo" column="user_no"/>
   		<result property="userId" column="user_id"/>
+  		<result property="userPw" column="user_pw"/>
   		<result property="userName" column="user_name"/>
   		<result property="regDate" column="reg_date"/>
   		<result property="updDate" column="upd_date"/>
@@ -51,5 +52,14 @@
   			  on(m.user_no = a.user_no)
   			where m.user_no = #{userNo}
   		
+  		</select>
+  		
+  			<select id="readByUserId" parameterType="string" resultMap="memberMap">
+  			select
+  			 m.user_no, m.user_id, m.user_pw, m.user_name, m.reg_date, m.upd_date, auth 
+  			 from member m 
+  			 left outer join member_auth a
+  			  on(m.user_no = a.user_no)
+  			where m.user_id = #{userId}
   		</select>
   </mapper>
